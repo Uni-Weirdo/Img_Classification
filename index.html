@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Classification (Food/Fitness)</title>
+</head>
+<body>
+    <h1>Upload an Image for Classification</h1>
+    <form action="/" method="POST" enctype="multipart/form-data">
+        <input type="file" name="image" accept="image/*" required>
+        <button type="submit">Upload Image</button>
+    </form>
+
+    {% if filename %}
+        <h2>Uploaded Image</h2>
+        <img src="{{ url_for('uploaded_file', filename=filename) }}" alt="Uploaded Image" width="300">
+        <p>Prediction: {{ prediction }}</p>
+    {% endif %}
+</body>
+</html>
